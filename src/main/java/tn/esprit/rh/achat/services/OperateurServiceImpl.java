@@ -12,6 +12,11 @@ public class OperateurServiceImpl implements IOperateurService {
 
 	@Autowired
 	OperateurRepository operateurRepository;
+
+	public OperateurServiceImpl(OperateurRepository operateurRepository) {
+		this.operateurRepository = operateurRepository;
+	}
+
 	@Override
 	public List<Operateur> retrieveAllOperateurs() {
 		return (List<Operateur>) operateurRepository.findAll();
@@ -26,7 +31,7 @@ public class OperateurServiceImpl implements IOperateurService {
 	@Override
 	public void deleteOperateur(Long id) {
 		operateurRepository.deleteById(id);
-		
+
 	}
 
 	@Override
